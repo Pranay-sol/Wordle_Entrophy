@@ -33,13 +33,13 @@ The words are filtered from the official list of possible answers of the NY Time
 
 This project is structured across several files, each serving a distinct purpose in the Wordle-solving process:
 
-* **`answer_key` file**: This file is responsible for generating a random answer from the official Wordle answers list. It contains two primary variables:
+* **[`answer_key`](answer_key.py) file**: This file is responsible for generating a random answer from the official Wordle answers list. It contains two primary variables:
     * `answers`: The official list of Wordle answers.
     * `guesses`: The official list of all allowed Wordle guesses.
 
-* **`wordle` file**: This file encapsulates the functioning of a simple Wordle game under the `wordle` function.
+* **[`wordle`](wordle_ig.py) file**: This file encapsulates the functioning of a simple Wordle game under the `wordle` function.
 
-* **`info_theory` file**: This file contains multiple functions crucial for the helper's functioning:
+* **[`info_theory`](info_theory.py) file**: This file contains multiple functions crucial for the helper's functioning:
     * **`Entropy`**: Calculates $H(X)$ from a given word, its score, and the remaining possible guesses. The formula for **Shannon entropy** is:
         $$h(X) = -P(x) \log_b P(x)$$
         Where:
@@ -49,9 +49,10 @@ This project is structured across several files, each serving a distinct purpose
     * **`Ranking`**: Ranks all possible guesses based on their calculated $H(X)$ values.
     * **`Next_best_guess`**: Returns a ranking of the best next guess from all available guesses, based on a specific word and its corresponding received score.
 
-* **`final_wordle_helper` file**: This file integrates the components, offering a recreation of the Wordle game along with a ranking of the top 10 best next guesses after each guess is made.
+* **[`final_wordle_helper`](Final_wordle_helper.py) file**: This file integrates the components, offering a recreation of the Wordle game along with a ranking of the top 10 best next guesses after each guess is made.
 
-[It's worth noting that the opening word is not calculated by the bot. However, widely considered strong opening words include 'crane', 'crate', 'soare', among others. To calculate an optimal opening word, a simple call to `ranking(answers)` (or `ranking(guesses)`) can be used. The bot's assistance typically begins after the initial, unassisted first guess.]
+The First Guess Rankings were done independently over the 2309 possible wordle answers. This can be achieved by a simple call to `ranking(answers)` (or `ranking(guesses)`)  .The bot's assistance typically begins after the initial, unassisted first guess.
+The processing of these words  took 771.1862 secs (or 12 minutes 51 seconds). The rankings are posted in the [rankings file](first_guess_rankings.csv)
 
 
 ---
